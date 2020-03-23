@@ -36,7 +36,10 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Shop Name</th>
+                            <th>Address</th>
+                            <th>Created On</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
 
@@ -67,7 +70,14 @@
         $('#jDataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('all_shops_data') }}'
+            ajax: '{{ route('all_shops_data') }}',
+            "columns": [
+                //title will auto-generate th columns
+                { "data" : "id", "name" : "id" },
+                { "data" : "name", "name" : "name" },
+                { "data" : "status",  "name" : "status"},
+                { "data" : "action",  "name" : "action"},
+            ]
         });
 
         $('body').on('click', '.deleteBrands', function(){

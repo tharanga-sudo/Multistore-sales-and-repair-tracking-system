@@ -59,7 +59,7 @@ class RepairProductController extends Controller
                 ->removeColumn('id')
                 ->removeColumn('shop')
                 ->removeColumn('user')
-                ->make();
+                ->make(true);
 
         } else {
             $invoices = Repair_invoice::where('user_id', $user->id)->select('id', 'shop_id', 'user_id', 'invoice_id', 'total_price', 'customer_name', 'created_at')->orderBy('id', 'desc')->with('shop', 'user');

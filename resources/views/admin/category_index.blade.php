@@ -66,7 +66,13 @@
         $('#jDataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('all_categories_data') }}'
+            ajax: '{{ route('all_categories_data') }}',
+            "columns": [
+                //title will auto-generate th columns
+                { "data" : "category_name", "name" : "category_name" },
+                { "data" : "created_at",  "name" : "created_at"},
+                { "data" : "actions",  "name" : "actions"},
+            ]
         });
 
         $('body').on('click', '.deleteCategory', function(){

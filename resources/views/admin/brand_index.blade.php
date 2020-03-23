@@ -66,7 +66,13 @@
         $('#jDataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('all_brands_data') }}'
+            ajax: '{{ route('all_brands_data') }}',
+            "columns": [
+                //title will auto-generate th columns
+                { "data" : "brand_name", "name" : "brand_name" },
+                { "data" : "created_at",  "name" : "created_at"},
+                { "data" : "actions",  "name" : "actions"},
+            ]
         });
 
         $('body').on('click', '.deleteBrands', function(){

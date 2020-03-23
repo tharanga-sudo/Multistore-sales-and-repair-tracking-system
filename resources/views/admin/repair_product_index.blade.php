@@ -61,10 +61,23 @@
     <script src="{{ asset('assets/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/admin/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <script>
+        //'shop_id', 'user_id', 'invoice_id', 'total_price', 'customer_name', 'created_at'
         $('#jDataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('repair_product_data') }}'
+            ajax: '{{ route('repair_product_data') }}',
+            "columns": [
+                //'id', 'shop_id', 'user_id', 'invoice_id', 'total_price', 'customer_name', 'created_at'
+                //title will auto-generate th columns
+                { "data" : "shop_id", "name" : "shop_id" },
+                { "data" : "user_id", "name" : "user_id" },
+                { "data" : "invoice_id",  "name" : "invoice_id"},
+                { "data" : "total_price",  "name" : "total_price"},
+                { "data" : "customer_name",  "name" : "customer_name"},
+                { "data" : "created_at",  "name" : "created_at"},
+                { "data" : "product",  "name" : "product"},
+                { "data" : "actions",  "name" : "actions"},
+            ]
         });
     </script>
 @endsection

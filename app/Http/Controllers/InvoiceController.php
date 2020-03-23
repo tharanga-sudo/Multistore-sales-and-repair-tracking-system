@@ -61,7 +61,7 @@ class InvoiceController extends Controller
                 ->removeColumn('id')
                 ->removeColumn('shop')
                 ->removeColumn('user')
-                ->make();
+                ->make(true);
 
         } else {
             $invoices = Invoice::where('user_id', $user->id)->select('id', 'shop_id', 'user_id', 'invoice_id', 'total_price', 'customer_name', 'created_at')->with('shop', 'user');

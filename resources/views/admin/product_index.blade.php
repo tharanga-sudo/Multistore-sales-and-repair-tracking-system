@@ -71,7 +71,19 @@
         $('#jDataTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('all_products_data') }}'
+            ajax: '{{ route('all_products_data') }}',
+            "columns": [
+                //'product_name', 'product_model', 'brand_id','category_id', 'unite_price', 'created_at'
+                //title will auto-generate th columns
+                { "data" : "product_name", "name" : "product_name" },
+                { "data" : "product_model", "name" : "product_model" },
+                { "data" : "brand_id",  "name" : "brand_id"},
+                { "data" : "category_id",  "name" : "category_id"},
+                { "data" : "unite_price",  "name" : "unite_price"},
+                { "data" : "created_at",  "name" : "created_at"},
+                { "data" : "stock",  "name" : "stock"},
+                { "data" : "actions",  "name" : "actions"},
+            ]
         });
 
         $('body').on('click', '.deleteBrands', function(){

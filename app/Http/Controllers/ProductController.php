@@ -52,7 +52,7 @@ class ProductController extends Controller
             ->removeColumn('id')
             ->removeColumn('brand')
             ->removeColumn('category')
-            ->make();
+            ->make(true);
     }
 
     public function indexShop()

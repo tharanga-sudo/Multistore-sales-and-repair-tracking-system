@@ -38,7 +38,7 @@ class CategoryController extends Controller
                 return $button;
             })
             ->removeColumn('id')
-            ->make();
+            ->make(true);
     }
 
     /**
